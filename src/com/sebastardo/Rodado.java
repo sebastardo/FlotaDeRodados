@@ -12,7 +12,7 @@ package com.sebastardo;
 public class Rodado {
     // De cada rodado nos van a interesar: capacidad (o sea, cuántos pasajeros puede transportar), velocidad máxima, color y peso.
     private int capacidad;
-    public int velocidad;
+    private int velocidad;
     private String color;
     private int peso;
 
@@ -22,6 +22,20 @@ public class Rodado {
         this.color = color;
         this.peso = peso;
     }
-    
-    
+
+    public int getPeso() {
+        return peso;
+    }
+
+    public int getVelocidad() {
+        return velocidad;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public int getCapacidad() {
+        return capacidad;
+    }
 }

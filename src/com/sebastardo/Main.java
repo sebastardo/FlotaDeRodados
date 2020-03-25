@@ -12,18 +12,15 @@ package com.sebastardo;
 public class Main {
     public static void main(String[] args) {
         
-        System.out.println(Trafic.getColor());
-        System.out.println(Trafic.getVelocidad());
-        System.out.println(Trafic.getPeso());
-        System.out.println(Trafic.getCapacidad());
-        
-        
-        Trafic.cambiarPorInteriorPopular(true);
-        System.out.println(Trafic.getPeso());
-        System.out.println(Trafic.getCapacidad());
-        
-        Trafic.cambiarPorMotorPulenta(true);
-        System.out.println(Trafic.getVelocidad());
-        System.out.println(Trafic.getPeso());
+        Dependencia deportes = new Dependencia(95);
+        ChevroletCorsa a = new ChevroletCorsa("rojo");
+        ChevroletCorsa b = new ChevroletCorsa("verde");
+        ChevroletCorsa c = new ChevroletCorsa("rojo");
+        RenaultKwid k = new RenaultKwid(true);
+        deportes.agregarAFlota(c);
+        deportes.agregarAFlota(a);
+        deportes.agregarAFlota(b);
+        deportes.agregarAFlota(k);
+        System.out.println(deportes.capacidadFaltante());
     }
 }

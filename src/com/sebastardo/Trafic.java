@@ -22,7 +22,7 @@ package com.sebastardo;
     Finalmente, digamos que la Trafic es de color blanco, independientemente del interior y el motor que tenga puestos.
 */
 
-public class Trafic{
+public class Trafic {
     private static int capacidad = 5;
     private static int velocidad = 80;
     private static String color = "blanco";
@@ -80,4 +80,5 @@ public class Trafic{
             peso += 1000;
         }
     }
+
 }
