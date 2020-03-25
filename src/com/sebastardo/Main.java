@@ -5,6 +5,10 @@
  */
 package com.sebastardo;
 
+import com.sebastardo.Etapa1.ChevroletCorsa;
+import com.sebastardo.Etapa1.Dependencia;
+import com.sebastardo.Etapa1.RenaultKwid;
+
 /**
  *
  * @author Sebastian
