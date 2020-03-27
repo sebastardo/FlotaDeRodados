@@ -11,10 +11,10 @@ package com.sebastardo.Etapa1;
  */
 public class Rodado {
     // De cada rodado nos van a interesar: capacidad (o sea, cuántos pasajeros puede transportar), velocidad máxima, color y peso.
-    private int capacidad;
-    private int velocidad;
-    private String color;
-    private int peso;
+    protected int capacidad;
+    protected int velocidad;
+    protected String color;
+    protected int peso;
 
     public Rodado(int capacidad, int velocidad, String color, int peso) {
         this.capacidad = capacidad;

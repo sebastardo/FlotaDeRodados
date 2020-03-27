@@ -6,8 +6,10 @@
 package com.sebastardo.Etapa1;
 
 import com.sebastardo.Etapa1.Rodado;
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -32,10 +34,10 @@ import java.util.Set;
 
 public class Dependencia {
     private int cantidadEmpleados;
-    private Set<Rodado> flota;
+    private List<Rodado> flota;
 
     public Dependencia(int cantidadEmpleados) {
-        flota = new HashSet<>();
+        flota = new ArrayList<>();
         this.cantidadEmpleados = cantidadEmpleados;
     }
     
