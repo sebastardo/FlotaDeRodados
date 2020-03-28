@@ -38,4 +38,11 @@ public class Rodado {
     public int getCapacidad() {
         return capacidad;
     }
+
+    @Override
+    public String toString() {
+        return "Rodado{" + "capacidad=" + capacidad + ", velocidad=" + velocidad + ", color=" + color + ", peso=" + peso + '}';
+    }
+    
+    
 }

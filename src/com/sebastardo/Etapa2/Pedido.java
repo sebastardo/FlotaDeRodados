@@ -61,5 +61,10 @@ public class Pedido {
         return true;
     }
 
+    @Override
+    public String toString() {
+        return "Pedido{" + "distanciaARecorrer=" + distanciaARecorrer + ", tiempoMaximo=" + tiempoMaximo + ", cantidadPasajeros=" + cantidadPasajeros + ", coloresIncompatibles=" + coloresIncompatibles + '}';
+    }
 
+    
 }

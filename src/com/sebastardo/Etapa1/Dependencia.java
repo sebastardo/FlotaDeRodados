@@ -6,6 +6,8 @@
 package com.sebastardo.Etapa1;
 
 import com.sebastardo.Etapa1.Rodado;
+import com.sebastardo.Etapa2.Pedido;
+import com.sebastardo.Etapa3.Registro;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashSet;
@@ -35,11 +37,22 @@ import java.util.Set;
 public class Dependencia {
     private int cantidadEmpleados;
     private List<Rodado> flota;
+    private Registro registroViajes;
 
     public Dependencia(int cantidadEmpleados) {
         flota = new ArrayList<>();
         this.cantidadEmpleados = cantidadEmpleados;
+        
+        registroViajes = new Registro();
     }
+    
+    public int getCantidadEmpleados() {
+        return cantidadEmpleados;
+    }
+    
+    ///////////////////////////////////////////////////////////////////////
+    // AUTOS
+    ///////////////////////////////////////////////////////////////////////
     
     public void agregarAFlota(Rodado rodado){
         flota.add(rodado);
@@ -73,7 +86,28 @@ public class Dependencia {
         return cantidadEmpleados>=40 && flota.size() >= 5;
     }
 
-    public int getCantidadEmpleados() {
-        return cantidadEmpleados;
+    
+    
+    
+
+    ///////////////////////////////////////////////////////////////////////
+    // PEDIDOS
+    ///////////////////////////////////////////////////////////////////////
+    
+    public void agregarPedido(Pedido pedido){
+        registroViajes.agregar(pedido, flota);
+        System.out.println("Agregado");
+    }
+    
+    public void quitarPedido(Pedido pedido){
+        // TODO
+        System.out.println("Quitado");
+    }
+    
+    
+    
+    // corregir
+    public void mostrar(){
+        System.out.println(registroViajes.toString());
     }
 }
