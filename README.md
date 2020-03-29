@@ -1,8 +1,5 @@
 # Flotas de rodados
  
-[![Build Status](https://travis-ci.org/wollok/flotasDeRodados.svg?branch=master)](https://travis-ci.org/wollok/flotasDeRodados)
-
-
 En este ejercicio vamos a construir un modelo que pueda servir para la administración de las flotas de rodados que utilizan las distintas dependencias de la Municipalidad de Coronel Vallejos. 
 
 ## Etapa 1 - Rodados y dependencias
@@ -66,10 +63,6 @@ Para cada dependencia, hacer asserts sobre: el peso total de la flota, si está 
 Va una ayudita: la capacidad faltante de deportes es de 25 personas (la flota puede llevar: 12 personas en los 3 Corsa, más 3 del Kwid y 5 del auto especial; total 20), mientras que la de cultura es de 5 personas (puede llevar en total 26: 6 de los Kwid con tanque adicional, más 4 de la Kwid sin tanque, más 4 de cachito, más 12 de la Trafic dado que tiene el interior popular).	
 <br>
 
-**Megaimportante**
-
-Hacer el diagrama de objetos correspondiente a este test.
-
 
 ## Etapa 2: modelo de pedidos
 
@@ -106,54 +99,3 @@ Agregar lo que haga falta al modelo para que se pueda conocer, para una dependen
 - dado un color, si es cierto que _todos_ los pedidos registrados lo tienen como color incompatible.
 
 También debe ser posible, enviando un mensaje al objeto que representa a una dependencia, _relajar_ todos los pedidos que tenga registrados.
-
-
-## Extra - un poco de geografía
-
-Agregarle a los Chevrolet Corsa una `Position` que indique su ubicación en un mapa de coordenadas. Supongamos que el mapa incluye las posiciones desde (0,0) hasta (15,15).
-La clase `Position` "viene con Wollok", pero para usarla hay que incluir este import: 
-```
-import wollok.game.*
-```
-
-Este código crea una instancia de `Position`: `new Position(x = 4, y = 7)`.
-Para ver qué mensajes entienden estos objetos, mirar en https://www.wollok.org/documentacion/wollokdoc/, entrar por "game.wlk" y buscar la clase "Position".
-
-Por otro lado, definir objetos que representen a las distintas direcciones, por ejemplo `norte`, `sur`, etc., de forma tal que a un vehículo se le pueda decir:
-`moverseHacia(direccion)`. P.ej. si se crea un vehículo así:
-``` 
-var miAutito = new ChevroletCorsa(posicion = new Position(x=3,y=6), ...)
-``` 
-y después se hace `miAutito.moverse(norte)`, la posición del vehículo debería pasar a ser (3,7).
-
-Después, agregarle estos métodos:
-- `repetirUltimoMovimiento()`
-- `pasoPor(posicion)`
-- `estaEn(region)` donde hay que crear los objetos que representan regiones. Arranquemos con regiones rectangulares, por ejemplo del (3,3) al (5,8).
-
-Después de esto, lograr que los objetos que representan regiones entiendan los mensajes `union(region)` e `interseccion(region)`, que devuelven las regiones que se indica. ¡OJO! que la unión, o la intersección, de dos regiones rectangulares, puede no ser rectangular.
-
-
-## Extra - desafíos con colecciones
-
-Agregar métodos a las dependencias que permitan obtener:
-- el conjunto de colores que son incompatibles para, al menos, un pedido. Los curiosos pueden investigar el método `flatten`; ver el apunte sobre colecciones que está en el sitio. 
-- el color más popular. P.ej. si una dependencia tiene tres vehículos blancos, dos azules y uno negro, entonces el color más popular es el blanco.
-- si se repite algún color, o sea si de algún color hay más de un vehículo. Acá puede servir `occurrencesOf(element)`, ver la documentación de Wollok o el apunte de colecciones.
-- si los vehículos de una dependencia están en una lista, se puede pensar que están registrados según el orden en el que se fueron incorporando. Agregar un método `ordenDeLlegada(vehiculo)`: el primer vehículo en llegar tendrá orden 1, el segundo 2, etc..  
-**Sugerencia**: while no hay, se van a tener que recorrer todos los vehículos, no hay problema. Puede venir cómodo recorrer _los índices_, para eso probar estas expresiones en un REPL: `(0..4)`, `(0..4).map({n => n * 2})`. Recordar que: hay que cortar en `vehiculos.size() - 1`, y que a partir del índice se puede acceder al elemento usando `get(indice)`.
-- a partir del anterior, y mirando `take`, implementar `vehiculosQueLlegaronAntesQue(veh)`, que son los que aparecen antes en la lista.
-
-
-## Notas bibliográficas
-
-Coronel Vallejos no existe, es el pueblo ficticio donde transcurre _La traición de Rita Hayworth_, una novela de Manuel Puig.
-
-
-## Un comentario para la implementación
-
-En este ejercicio no damos ningún código inicial, les toca todo a ustedes. Van solamente algunos comentarios.
-
-La mayor parte de los objetos que representan rodados van a ser instancias de alguna clase. No todos de la misma clase: las características de un Corsa son distintas que las de un Twid.
-
-La excepción es la Trafic: dado que hay una sola, **no es necesario** crear una clase `Trafic`, puede ser tranquilamente un objeto bien conocido.
