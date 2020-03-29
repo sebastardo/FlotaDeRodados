@@ -22,6 +22,19 @@ import java.util.HashSet;
 public class Main {
     public static void main(String[] args) {
         
+        // probando patron de diseño Singleton
+        RenaultTrafic trafic = RenaultTrafic.getComprar();
+        System.out.println(trafic.getCapacidad());
+        trafic.cambiarPorInteriorPopular(true);
+        System.out.println(trafic.getCapacidad());
+        // probando patron de diseño Singleton
+        
+        
+        
+        
+        
+        
+        
         // Creacion dependencia
         Dependencia deportes = new Dependencia(45);
 

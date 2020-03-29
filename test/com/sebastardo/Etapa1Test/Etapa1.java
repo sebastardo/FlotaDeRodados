@@ -85,9 +85,10 @@ public class Etapa1 {
         cultura.agregarAFlota(kwidConTanqueAdicional2); // 1350
         cultura.agregarAFlota(kwidSinTanqueAdicional); // 1200
 
-        
-        RenaultTrafic trafic = new RenaultTrafic();        
+        // solo puede haber 1 trafic
+        RenaultTrafic trafic = RenaultTrafic.getComprar();
         trafic.cambiarPorInteriorPopular(true);
+        
         cultura.agregarAFlota(trafic); // 5500
         
     }

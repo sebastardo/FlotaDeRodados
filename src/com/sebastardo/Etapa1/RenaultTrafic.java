@@ -8,22 +8,35 @@ package com.sebastardo.Etapa1;
 /**
  *
  * @author Sebastian
+ * 
+ * 
+ * Usando un patron de diseño Singleton
  */
 public class RenaultTrafic extends Rodado{
     
+    
+    private static RenaultTrafic comprar;
+    
     private boolean interiorComodo;
     private boolean motorPulenta;
-    private static boolean existe = false;
 
-    public RenaultTrafic() {
+    private RenaultTrafic() {
         super(5, 80, "blanco", 5200);
-        /*if(existe){
-            throw new RuntimeException("Ya se compro una Trafic");
-        }*/
-        existe = true;
         interiorComodo = true;
         motorPulenta = false;
     }
+
+    public static RenaultTrafic getComprar() {
+        if(comprar == null){
+            comprar = new RenaultTrafic();
+        }
+        return comprar;
+    }
+    
+    
+    
+    
+    
     
     public void cambiarPorMotorPulenta(boolean si){
         motorPulenta = si;
