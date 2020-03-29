@@ -46,11 +46,15 @@ public class Main {
         // Creacion pedidos
         Pedido p1 = new Pedido(960,8,4,new HashSet<String>(Arrays.asList("azul","negro")));
         Pedido p2 = new Pedido(960,8,6,new HashSet<String>(Arrays.asList("azul","negro")));
+        Pedido p3 = new Pedido(960,8,7,new HashSet<String>(Arrays.asList("azul","negro")));
         
         
         // se agregan a dependencia
         deportes.agregarPedido(p1);
         deportes.agregarPedido(p2);
+        deportes.agregarPedido(p3);
+        
+        deportes.pedidosSinAutos();
         
         System.out.println("Cantidad de pasajeros: " + deportes.cantidadDePasajeros());
         
@@ -67,5 +71,8 @@ public class Main {
         
         deportes.colorIncompatible("azul");
         deportes.colorIncompatible("rojo");
+        
+        
+        deportes.borrar();
     }
 }

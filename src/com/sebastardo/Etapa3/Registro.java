@@ -7,6 +7,7 @@ package com.sebastardo.Etapa3;
 
 import com.sebastardo.Etapa1.Rodado;
 import com.sebastardo.Etapa2.Pedido;
+import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
@@ -61,11 +62,29 @@ public class Registro {
         return registroPedidos.entrySet().stream().mapToInt(e -> e.getValue().getCantidadPasajeros()).sum();
     }
     
-    // TODO: pedidos sin autos
-    public void pedidosSinAutos(){
+    
+    
+    public List<Pedido> pedidosSinAutos(){
         // busca en registroAutosParaPedidos las listas vacias y guarda las keys en una lista
         // verifica que keys de registroPedidos esta en esa lista y devuelve el pedido, guardandolo en una lista
         // devuelve esa lista de pedidos
+        
+        /*
+        List<Integer> vacios = registroAutosParaPedidos.entrySet().stream().filter(e->e.getValue().isEmpty()).map(Map.Entry::getKey).collect(Collectors.toList());
+        return registroPedidos.entrySet().stream().filter(e->vacios.contains(e.getKey())).map(Map.Entry::getValue).collect(Collectors.toList());
+        */
+        // lo anterior en "una" linea:
+        
+        return registroPedidos
+                .entrySet()
+                .stream()
+                .filter(e->(registroAutosParaPedidos.entrySet()
+                            .stream()
+                            .filter(entry->entry.getValue().isEmpty())
+                            .map(Map.Entry::getKey)
+                            .collect(Collectors.toList())
+                        ).contains(e.getKey()))
+                .map(Map.Entry::getValue).collect(Collectors.toList());
     }
     
  
@@ -73,7 +92,11 @@ public class Registro {
         return registroPedidos.entrySet().stream().anyMatch(e->e.getValue().getColoresIncompatibles().stream().anyMatch(c->c.equals(color)));
     }
     
-    // TODO: borrar todos los pedidos
+
+    public void borrar(){
+        registroPedidos = new Hashtable<Integer, Pedido>();
+        registroAutosParaPedidos = new Hashtable<Integer, List<Rodado>>();
+    }
     
     
     

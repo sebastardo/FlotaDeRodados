@@ -104,6 +104,11 @@ public class Dependencia {
         System.out.println("Quitado");
     }
     
+    
+    public void pedidosSinAutos(){
+        System.out.println(registroViajes.pedidosSinAutos());
+    }
+    
     public int cantidadDePasajeros(){
         return registroViajes.totalPasajeros();
     }
@@ -114,8 +119,12 @@ public class Dependencia {
         } else {
             System.out.println("El " + color + " es un color aceptado");
         }
-        
-                
+  
+    }
+
+    public void borrar(){
+        registroViajes.borrar();
+        System.out.println("Eliminados todos los pedidos");
     }
     
     // corregir
