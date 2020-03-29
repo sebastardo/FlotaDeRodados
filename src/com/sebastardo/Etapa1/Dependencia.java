@@ -100,11 +100,23 @@ public class Dependencia {
     }
     
     public void quitarPedido(Pedido pedido){
-        // TODO
+        registroViajes.quitar(pedido);
         System.out.println("Quitado");
     }
     
+    public int cantidadDePasajeros(){
+        return registroViajes.totalPasajeros();
+    }
     
+    public void colorIncompatible(String color){
+        if(registroViajes.colorIndeseado(color)){
+            System.out.println("El " + color + " es un color indeseado");
+        } else {
+            System.out.println("El " + color + " es un color aceptado");
+        }
+        
+                
+    }
     
     // corregir
     public void mostrar(){

@@ -61,6 +61,15 @@ public class Pedido {
         return true;
     }
 
+    public int getCantidadPasajeros() {
+        return cantidadPasajeros;
+    }
+
+    public Set<String> getColoresIncompatibles() {
+        return coloresIncompatibles;
+    }
+   
+
     @Override
     public String toString() {
         return "Pedido{" + "distanciaARecorrer=" + distanciaARecorrer + ", tiempoMaximo=" + tiempoMaximo + ", cantidadPasajeros=" + cantidadPasajeros + ", coloresIncompatibles=" + coloresIncompatibles + '}';

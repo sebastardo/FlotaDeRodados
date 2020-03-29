@@ -50,8 +50,22 @@ public class Main {
         
         // se agregan a dependencia
         deportes.agregarPedido(p1);
+        deportes.agregarPedido(p2);
         
-        // Borrar
-        deportes.mostrar();
+        System.out.println("Cantidad de pasajeros: " + deportes.cantidadDePasajeros());
+        
+        // Borrar esto no sirve, solo esta de prueba
+        //deportes.mostrar();
+        
+        deportes.quitarPedido(p1);
+        
+        // cantidad de pasajeros
+        System.out.println("Cantidad de pasajeros: " + deportes.cantidadDePasajeros());
+        
+        
+        // color indeseado
+        
+        deportes.colorIncompatible("azul");
+        deportes.colorIncompatible("rojo");
     }
 }

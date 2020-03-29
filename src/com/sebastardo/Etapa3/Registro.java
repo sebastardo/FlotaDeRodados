@@ -9,7 +9,9 @@ import com.sebastardo.Etapa1.Rodado;
 import com.sebastardo.Etapa2.Pedido;
 import java.util.Hashtable;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  *
@@ -44,21 +46,38 @@ public class Registro {
         numeroPedido++;
     }
     
+    // TODO: quitar pedido
+    public void quitar(Pedido pedido){
+        int keyBorrable = registroPedidos.entrySet().stream()
+                .filter(entry -> entry.getValue().equals(pedido)).map(Map.Entry::getKey).collect(Collectors.toSet())
+                .stream().findFirst().get();
+
+        registroPedidos.remove(keyBorrable);
+        registroAutosParaPedidos.remove(keyBorrable);
+    }    
+        
     
-    // TODO: total de pasajeros en lños pedidos
-    
+    public int totalPasajeros(){
+        return registroPedidos.entrySet().stream().mapToInt(e -> e.getValue().getCantidadPasajeros()).sum();
+    }
     
     // TODO: pedidos sin autos
+    public void pedidosSinAutos(){
+        // busca en registroAutosParaPedidos las listas vacias y guarda las keys en una lista
+        // verifica que keys de registroPedidos esta en esa lista y devuelve el pedido, guardandolo en una lista
+        // devuelve esa lista de pedidos
+    }
     
  
-    // TODO: dado 1 color, ver si ningun pedido lo quiere
-    
+    public boolean colorIndeseado(String color){
+        return registroPedidos.entrySet().stream().anyMatch(e->e.getValue().getColoresIncompatibles().stream().anyMatch(c->c.equals(color)));
+    }
     
     // TODO: borrar todos los pedidos
     
     
     
-    // TODO: Corregir
+    // TODO: Corregir (no lo hare)
     @Override
     public String toString(){
         return registroPedidos.get(0).toString() + "\n\t" + registroAutosParaPedidos.get(0).toString();
