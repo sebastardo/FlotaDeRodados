@@ -9,17 +9,7 @@ package com.sebastardo.Etapa1;
  *
  * @author Sebastian
  *  
-    Una Trafic (sí, una sola), que es reconfigurable, porque se le puede cambiar el interior y el motor.
- 
-    La municipalidad cuenta con dos interiores, uno cómodo (capacidad 5 pasajeros, peso 700 kg) y otro popular (capacidad 12 pasajeros, peso 1000 kg). 
-        La municipalidad tiene un solo interior de cada tipo.
-    También ha comprado dos motores para su Trafic, uno pulenta (que pesa 800 kg y permite una velocidad máxima de 130 km/h) y otro batatón (
-        que pesa 500 kg y permite una velocidad máxima de 80 km/h). La municipalidad tiene un solo motor de cada tipo.
-    Varias características de la Trafic dependen de qué interior y qué motor le hayan puesto:
-        La capacidad de la Trafic es la del interior.
-        La velocidad máxima es la que permite el motor.
-        El peso es 4000 kg más el peso del interior más el del motor.
-    Finalmente, digamos que la Trafic es de color blanco, independientemente del interior y el motor que tenga puestos.
+ * Intento de hacer la trafic estatica, no se puede poner en la lista, no sirvio para el ejercicio
 */
 
 public class Trafic {

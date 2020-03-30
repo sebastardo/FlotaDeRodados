@@ -9,6 +9,7 @@ import com.sebastardo.Etapa1.ChevroletCorsa;
 import com.sebastardo.Etapa1.Dependencia;
 import com.sebastardo.Etapa1.RenaultKwid;
 import com.sebastardo.Etapa1.RenaultTrafic;
+import com.sebastardo.Etapa1.RenaultTraficSingleton;
 import com.sebastardo.Etapa1.Rodado;
 import com.sebastardo.Etapa2.Pedido;
 import com.sebastardo.Etapa3.Registro;
@@ -23,11 +24,18 @@ public class Main {
     public static void main(String[] args) {
         
         // probando patron de diseño Singleton
-        RenaultTrafic trafic = RenaultTrafic.getComprar();
+        RenaultTraficSingleton trafic = RenaultTraficSingleton.getComprar();
+        
+        RenaultTraficSingleton trafic2 = RenaultTraficSingleton.getComprar();
         System.out.println(trafic.getCapacidad());
         trafic.cambiarPorInteriorPopular(true);
         System.out.println(trafic.getCapacidad());
+        System.out.println(trafic2.getCapacidad());
+        
+        
+        System.out.println(trafic==trafic2);
         // probando patron de diseño Singleton
+        // trafic2 es algo asi como puntero a trafic, pero no es lo que necesito!
         
         
         

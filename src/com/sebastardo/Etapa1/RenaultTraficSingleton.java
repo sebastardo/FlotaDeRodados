@@ -11,27 +11,30 @@ package com.sebastardo.Etapa1;
  * 
  * 
  * Usando un patron de diseño Singleton
- * Deja crear una sola trafic e impide crear mas.
- * No se si es la correcta, pero hace exactamente lo que dice el ejercicio
+ * Tecnicamente no sirve para el ejercicio, deja crear muchas trafic (que en realidad es una sola, singleton es mas
+ * una forma de hacer punteros)
  * 
  */
-
-
-public class RenaultTrafic extends Rodado{
+public class RenaultTraficSingleton extends Rodado{
+    
+    
+    private static RenaultTraficSingleton comprar;
     
     private boolean interiorComodo;
     private boolean motorPulenta;
-    private static boolean existe = false;
 
-    public RenaultTrafic() {
+    private RenaultTraficSingleton() {
         super(5, 80, "blanco", 5200);
-        // en el test Etapa2Test tira error
-        if(existe){
-            throw new RuntimeException("Ya se compro una Trafic");
-        }
-        existe = true;
         interiorComodo = true;
         motorPulenta = false;
+    }
+
+    public static RenaultTraficSingleton getComprar() {
+        System.out.println(comprar);
+        if(comprar == null){
+            comprar = new RenaultTraficSingleton();
+        }
+        return comprar;
     }
     
     

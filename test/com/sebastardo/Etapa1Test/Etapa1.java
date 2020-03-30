@@ -9,6 +9,7 @@ import com.sebastardo.Etapa1.ChevroletCorsa;
 import com.sebastardo.Etapa1.Dependencia;
 import com.sebastardo.Etapa1.RenaultKwid;
 import com.sebastardo.Etapa1.RenaultTrafic;
+import com.sebastardo.Etapa1.RenaultTraficSingleton;
 import com.sebastardo.Etapa1.Rodado;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -86,7 +87,7 @@ public class Etapa1 {
         cultura.agregarAFlota(kwidSinTanqueAdicional); // 1200
 
         // solo puede haber 1 trafic
-        RenaultTrafic trafic = RenaultTrafic.getComprar();
+        RenaultTraficSingleton trafic = RenaultTraficSingleton.getComprar();
         trafic.cambiarPorInteriorPopular(true);
         
         cultura.agregarAFlota(trafic); // 5500
